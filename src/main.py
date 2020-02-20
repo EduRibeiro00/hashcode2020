@@ -2,8 +2,9 @@ import sys
 from read_input import parse_input
 
 def main(argv):
-    problem = parse_input(argv[0])
+    problem = parse_input("a_example.txt")
     problem.print()
+    problem.solve()
 
 
 if __name__ == "__main__":

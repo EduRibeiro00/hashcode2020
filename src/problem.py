@@ -13,7 +13,10 @@ class Problem:
         useful_days = days_left - library.signup
         books_count = useful_days * library.ship
 
-        return sum([book.score for book in library.books])
+        if books_count > len(library.books):
+           books_count = len(library.books)
+
+        return sum([book.score for book in library.books[:books_count]])
 
     def print(self):
         print(self.num_b)
@@ -24,29 +27,36 @@ class Problem:
 
     def solve(self):
         
-        freeDays = self.num_d
+        daysLeft = self.num_d
         librariesResult = []
 
-        while(freeDays < 0):
+        while daysLeft > 0 and self.libraries:
             
             # Evaluate each libraries and get the best
-            bestLibrary = self.
-
-            # Get the chosen books
-            books = [book for book in bestLibrary.books]
+            bestLibrary = self.getBestLibrary(daysLeft)
 
             # Remove repeated books from other libraries
             for library in self.libraries:
-                library.removeBooks(books)
+                library.remove_books(bestLibrary.books)
 
             # Update remaining days
-            freeDays -= bestLibrary.signup
+            daysLeft -= bestLibrary.signup
 
             # Add best library to the result
             self.librariesResult.append(bestLibrary)
             self.libraries.remove(bestLibrary)
 
+        print(self.librariesResult)
 
 
+    def getBestLibrary(self, days_left):
+        bestLibrary = None
+        best = 0
 
+        for library in self.libraries:
+            current = self.eval(library, days_left)
+            if current > best:
+                best = current
+                bestLibrary = library
 
+        return bestLibrary

@@ -9,7 +9,7 @@ def parse_input(file):
     libraries = []
     books = []
 
-    with open("../input/" + file, "r") as input:
+    with open("input/" + file, "r") as input:
         lines = input.readlines()
         [B, L, D] = [int(i) for i in lines[0].split(" ")]
         book_scores = [int(i) for i in lines[1].split(" ")]
