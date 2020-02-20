@@ -20,3 +20,15 @@ class Problem:
         print(self.num_d)
         print(self.books)
         print(self.libraries)
+
+    def getBestLibrary(self, days_left):
+        bestLibrary = None
+        best = 0
+
+        for library in self.libraries:
+            current = self.eval(library, days_left)
+            if current > best:
+                best = current
+                bestLibrary = library
+
+        return bestLibrary
