@@ -7,3 +7,7 @@ class Book:
         self.score = score
         self.index = index
 
+
+def sort_func(book):
+    return book.score
+
