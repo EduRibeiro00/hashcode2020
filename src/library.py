@@ -15,3 +15,10 @@ class Library:
 
     def sort_books(self):
         self.books.sort(key=sort_func)
+
+    def remove_books(self, books_to_remove):
+        for idx, book in enumerate(self.books):
+            for rem_book in books_to_remove:
+                if book == rem_book:
+                    del self.books[idx]
+                    break
