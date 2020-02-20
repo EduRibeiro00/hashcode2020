@@ -1,3 +1,5 @@
+from book import Book, sort_func
+
 class Library:
     """
     n_books -> number of books in library
@@ -9,3 +11,7 @@ class Library:
         self.index = index
         self.books = [int(i) for i in line2.split(" ")]
         [self.n_books, self.signup, self.ship] = [int(i) for i in line1.split(" ")]
+        self.sort_books()
+
+    def sort_books(self):
+        self.books.sort(key=sort_func)
