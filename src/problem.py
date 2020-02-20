@@ -10,5 +10,6 @@ class Problem:
     def print(self):
         print(self.num_b)
         print(self.num_l)
+        print(self.num_d)
         print(self.books)
         print(self.libraries)

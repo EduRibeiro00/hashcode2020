@@ -1,5 +1,5 @@
 import sys
-from io import parse_input
+from read_input import parse_input
 
 def main(argv):
     problem = parse_input(argv[0])
