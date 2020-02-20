@@ -12,6 +12,7 @@ class Library:
         self.books = [books[int(i)] for i in line2.split(" ")]
         [self.n_books, self.signup, self.ship] = [int(i) for i in line1.split(" ")]
         self.sort_books()
+        self.books_count = 0
 
     def sort_books(self):
         self.books.sort(key=sort_func)

@@ -11,12 +11,12 @@ class Problem:
 
     def eval(self, library, days_left):
         useful_days = days_left - library.signup
-        books_count = useful_days * library.ship
+        library.books_count = useful_days * library.ship
 
         if books_count > len(library.books):
            books_count = len(library.books)
 
-        return sum([book.score for book in library.books[:books_count]])
+        return sum([book.score for book in library.books[:library.books_count]])
 
     def print(self):
         print(self.num_b)
@@ -26,12 +26,12 @@ class Problem:
         print(self.libraries)
 
     def solve(self):
-        
+
         daysLeft = self.num_d
         librariesResult = []
 
         while daysLeft > 0 and self.libraries:
-            
+
             # Evaluate each libraries and get the best
             bestLibrary = self.getBestLibrary(daysLeft)
 
@@ -46,8 +46,7 @@ class Problem:
             self.librariesResult.append(bestLibrary)
             self.libraries.remove(bestLibrary)
 
-        print(self.librariesResult)
-
+        return self.librariesResult
 
     def getBestLibrary(self, days_left):
         bestLibrary = None
@@ -60,3 +59,5 @@ class Problem:
                 bestLibrary = library
 
         return bestLibrary
+
+
