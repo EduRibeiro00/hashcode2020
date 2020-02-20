@@ -1,3 +1,5 @@
+from library import Library
+
 class Problem:
     def __init__(self, num_b, num_l, num_d, books, libraries):
         self.num_b = num_b
@@ -6,6 +8,12 @@ class Problem:
         self.books = books
         self.libraries = libraries
         self.librariesResult = []
+
+    def eval(self, library, days_left):
+        useful_days = days_left - library.signup
+        books_count = useful_days * library.ship
+
+        return sum([book.score for book in library.books])
 
     def print(self):
         print(self.num_b)
@@ -19,18 +27,22 @@ class Problem:
         freeDays = self.num_d
         librariesResult = []
 
-        while(freeDays != 0):
+        while(freeDays < 0):
             
-            # Evaluate each libraries
-            librariesOrdered = evaluateLibraries(self.libraries)
-            bestLibrary = librariesOrdered.getMax()
+            # Evaluate each libraries and get the best
+            bestLibrary = self.
 
-            bookIndexes = [book for book in bestLibrary.books]
+            # Get the chosen books
+            books = [book for book in bestLibrary.books]
 
+            # Remove repeated books from other libraries
             for library in self.libraries:
-                library.removeBooks(bookIndexes)
+                library.removeBooks(books)
 
+            # Update remaining days
             freeDays -= bestLibrary.signup
+
+            # Add best library to the result
             self.librariesResult.append(bestLibrary)
             self.libraries.remove(bestLibrary)
 
