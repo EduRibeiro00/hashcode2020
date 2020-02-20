@@ -20,6 +20,6 @@ def parse_input(file):
         lines = lines[2:]
         for idx, line in enumerate(lines):
             if idx % 2 == 0:
-                libraries.append(Library(lines[idx], lines[idx + 1], idx//2))
+                libraries.append(Library(lines[idx], lines[idx + 1], idx//2, books))
 
     return Problem(B, L, D, books, libraries)

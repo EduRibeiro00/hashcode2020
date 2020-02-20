@@ -1,0 +1,16 @@
+
+ListaBibliotecas
+
+avalia(L,D) ->
+
+    DiasUteis = D - L.signup
+    Scores = L.books.scores // assume sorted
+    BooksCount = DiasUteis * taxa
+    BookScores = Scores[:bookCount]
+
+    return sum(BookScores)
+
+
+ 
+    
+
