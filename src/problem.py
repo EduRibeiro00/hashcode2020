@@ -5,7 +5,7 @@ class Problem:
         self.num_d = num_d
         self.books = books
         self.libraries = libraries
-
+        self.librariesResult = []
 
     def print(self):
         print(self.num_b)
@@ -21,11 +21,20 @@ class Problem:
 
         while(freeDays != 0):
             
+            # Evaluate each libraries
             librariesOrdered = evaluateLibraries(self.libraries)
             bestLibrary = librariesOrdered.getMax()
+
+            bookIndexes = [book for book in bestLibrary.books]
+
+            for library in self.libraries:
+                library.removeBooks(bookIndexes)
+
             freeDays -= bestLibrary.signup
-            librariesResult.append(bestLibrary)
-            
+            self.librariesResult.append(bestLibrary)
+            self.libraries.remove(bestLibrary)
+
+
 
 
 
