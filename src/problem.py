@@ -13,3 +13,19 @@ class Problem:
         print(self.num_d)
         print(self.books)
         print(self.libraries)
+
+    def solve(self):
+        
+        freeDays = self.num_d
+        librariesResult = []
+
+        while(freeDays != 0):
+            
+            librariesOrdered = evaluateLibraries(self.libraries)
+            bestLibrary = librariesOrdered.getMax()
+            freeDays -= bestLibrary.signup
+            librariesResult.append(bestLibrary)
+            
+
+
+
