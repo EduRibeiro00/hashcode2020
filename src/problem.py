@@ -32,11 +32,13 @@ class Problem:
 
         while daysLeft > 0 and self.libraries:
             
+            print(daysLeft)
             # Evaluate each libraries and get the best
             bestLibrary = self.getBestLibrary(daysLeft)
 
             # Remove repeated books from other libraries
             for library in self.libraries:
+                print(library)
                 library.remove_books(bestLibrary.books)
 
             # Update remaining days

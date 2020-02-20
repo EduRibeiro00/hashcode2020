@@ -2,8 +2,7 @@ import sys
 from read_input import parse_input
 
 def main(argv):
-    problem = parse_input("a_example.txt")
-    problem.print()
+    problem = parse_input("b_read_on.txt")
     problem.solve()
 
 

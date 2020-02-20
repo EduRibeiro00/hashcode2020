@@ -19,6 +19,10 @@ def parse_input(file):
 
         lines = lines[2:]
         for idx, line in enumerate(lines):
+
+            if line == "\n":
+                break
+
             if idx % 2 == 0:
                 libraries.append(Library(lines[idx], lines[idx + 1], idx//2, books))
 
